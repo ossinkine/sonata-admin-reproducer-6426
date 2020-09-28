@@ -29,3 +29,17 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    admin.parent_object:
+        class: App\Admin\ParentObjectAdmin
+        arguments: [~, App\Entity\ParentObject, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: ParentObject }
+        public: true
+
+    admin.child_object:
+        class: App\Admin\ChildObjectAdmin
+        arguments: [~, App\Entity\ChildObject, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: ChildObject }
+        public: true
